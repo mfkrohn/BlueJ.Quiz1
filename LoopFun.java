@@ -52,42 +52,47 @@ public class LoopFun
        * @return the encrypted string by shifting each character by three character
        */
       public String encrypt(String word) {
-          char[] encrypt = word.toCharArray();
+          char[] encrypt1 = word.toCharArray();
+          for(char c: encrypt1){
+             System.out.print(c); 
+            }
           String secretWord = "";
-          for(int i = 0; i < encrypt.length; i++){
-             switch (encrypt[i]){
+          for(int i = 0; i < encrypt1.length; i++){
+             switch (encrypt1[i]){
               case 'x':
-              encrypt[i] = (char)141;
+              encrypt1[i] = 'a';
               break;
               
               case 'y':
-              encrypt[i] = (char)142;
+              encrypt1[i] = 'b';
               break;
               
               case 'z':
-              encrypt[i] = (char)143;
+              encrypt1[i] = 'c';
               break;
               
               case 'X':
-              encrypt[i] = (char)101;
+              encrypt1[i] = 'A';
               break;
               
               case 'Y':
-              encrypt[i] = (char)102;
+              encrypt1[i] = 'B';
               break;
               
               case 'Z':
-              encrypt[i] = (char)103;
+              encrypt1[i] = 'C';
               break;
               
               default:   
-              encrypt[i] = (char)((int)encrypt[i] + 3);
+              encrypt1[i] += 3;
               break;
             }
-            for(int j = 0; j < encrypt.length; j++){
-            secretWord += encrypt[j];  
-            }
+            
         }
+        for(int j = 0; j < encrypt1.length; j++){
+            secretWord += encrypt1[j]; 
+            System.out.println(secretWord);
+            }
           return secretWord;
       }
 }
