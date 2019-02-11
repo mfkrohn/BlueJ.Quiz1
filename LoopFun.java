@@ -10,7 +10,12 @@ public class LoopFun
        * @return the factorial of the number
        */
       public Integer factorial(Integer number){
-          return null;
+          int ans = 1;
+          for(int i = 1; i<number + 1; i++){
+             ans *= i; 
+            }
+          
+          return ans;
       }
 
       /**
@@ -21,7 +26,17 @@ public class LoopFun
        * @return Upper case string of the first letter of each word
        */
       public String acronym(String phrase) {
-          return null;
+          String[] acr = phrase.split(" ");
+          String[] firstLetter = new String[acr.length];
+          StringBuilder builder = new StringBuilder();
+          String acronym = "";
+          for(int i = 0; i < acr.length; i++){
+            firstLetter[i] = ("" + acr[i].charAt(0)).toUpperCase();  
+            }
+          for(int j = 0; j < firstLetter.length; j++){
+            acronym += firstLetter[j];  
+            }
+          return acronym;
       }
 
       /**
@@ -37,6 +52,42 @@ public class LoopFun
        * @return the encrypted string by shifting each character by three character
        */
       public String encrypt(String word) {
-          return null;
+          char[] encrypt = word.toCharArray();
+          String secretWord = "";
+          for(int i = 0; i < encrypt.length; i++){
+             switch (encrypt[i]){
+              case 'x':
+              encrypt[i] = (char)141;
+              break;
+              
+              case 'y':
+              encrypt[i] = (char)142;
+              break;
+              
+              case 'z':
+              encrypt[i] = (char)143;
+              break;
+              
+              case 'X':
+              encrypt[i] = (char)101;
+              break;
+              
+              case 'Y':
+              encrypt[i] = (char)102;
+              break;
+              
+              case 'Z':
+              encrypt[i] = (char)103;
+              break;
+              
+              default:   
+              encrypt[i] = (char)((int)encrypt[i] + 3);
+              break;
+            }
+            for(int j = 0; j < encrypt.length; j++){
+            secretWord += encrypt[j];  
+            }
+        }
+          return secretWord;
       }
 }
